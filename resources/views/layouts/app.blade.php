@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Comfort Heat</title>
     <!-- Icon -->
-    <link rel="shortcut icon" href="image/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="/image/favicon.svg" type="image/x-icon">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,14 +27,14 @@
         <div class="container">
             <div class="catalog-modal__head">
                 <h4>Каталог продукції</h4>
-                <a id="modal-close" href="#"><img src="image/close-catalog.svg" alt="close-catalog"></a>
-                <a id="close-laptop" href="#"><img src="image/close.svg" alt="close-laptop"></a>
+                <a id="modal-close" href="#"><img src="/image/close-catalog.svg" alt="close-catalog"></a>
+                <a id="close-laptop" href="#"><img src="/image/close.svg" alt="close-laptop"></a>
             </div>
             <div class="catalog-modal__body">
                 <div class="catalog-modal__left">
                     <ul class="catalog-modal__item">
                         <a class="catalog-modal__first-button" href="#">
-                            Тепла підлога<img src="image/arrow-down-orange.svg" alt="arrow">
+                            Тепла підлога<img src="/image/arrow-down-orange.svg" alt="arrow">
                         </a>
                         <li><a href="#">Під плитку</a></li>
                         <li><a href="#">В стяжку</a></li>
@@ -42,7 +42,7 @@
                     </ul>
                     <ul class="catalog-modal__item">
                         <a class="catalog-modal__first-button" href="#">
-                            Опалення<img src="image/arrow-down-orange.svg" alt="arrow">
+                            Опалення<img src="/image/arrow-down-orange.svg" alt="arrow">
                         </a>
                         <li><a href="#">Сніготанення вуличних майданчиків</a></li>
                         <li><a href="#">Обігрів водостічної системи</a></li>
@@ -50,41 +50,41 @@
                     </ul>
                     <ul class="catalog-modal__item">
                         <a class="catalog-modal__first-button" href="#">
-                            Вуличні системи<img src="image/arrow-down-orange.svg" alt="arrow">
+                            Вуличні системи<img src="/image/arrow-down-orange.svg" alt="arrow">
                         </a>
                         <li><a href="#">Обігрів водостічної системи</a></li>
                         <li><a href="#">Захист труб від замерзання</a></li>
                     </ul>
                     <ul class="catalog-modal__item">
                         <a class="catalog-modal__first-button" href="#">
-                            Технологічний обігрів<img src="image/arrow-down-orange.svg" alt="arrow">
+                            Технологічний обігрів<img src="/image/arrow-down-orange.svg" alt="arrow">
                         </a>
                         <li><a href="#">В стяжку</a></li>
                     </ul>
                     <ul class="catalog-modal__item">
                         <a class="catalog-modal__first-button" href="#">
-                            Нагрівальні мати<img src="image/arrow-down-orange.svg" alt="arrow">
+                            Нагрівальні мати<img src="/image/arrow-down-orange.svg" alt="arrow">
                         </a>
                         <li><a href="#">Під плитку</a></li>
                         <li><a href="#">В стяжку</a></li>
                     </ul>
                     <ul class="catalog-modal__item">
                         <a class="catalog-modal__first-button" href="#">
-                            Нагрівальні кабелі<img src="image/arrow-down-orange.svg" alt="arrow">
+                            Нагрівальні кабелі<img src="/image/arrow-down-orange.svg" alt="arrow">
                         </a>
                         <li><a href="#">Обігрів водостічної системи</a></li>
                         <li><a href="#">Захист труб від замерзання</a></li>
                     </ul>
                     <ul class="catalog-modal__item">
                         <a class="catalog-modal__first-button" href="#">
-                            Додаткове обладнання<img src="image/arrow-down-orange.svg" alt="arrow">
+                            Додаткове обладнання<img src="/image/arrow-down-orange.svg" alt="arrow">
                         </a>
                         <li><a href="#">Обігрів водостічної системи</a></li>
                         <li><a href="#">Захист труб від замерзання</a></li>
                     </ul>
                     <ul class="catalog-modal__item">
                         <a class="catalog-modal__first-button" href="#">
-                            Терморегулятори<img src="image/arrow-down-orange.svg" alt="arrow">
+                            Терморегулятори<img src="/image/arrow-down-orange.svg" alt="arrow">
                         </a>
                         <li><a href="#">Сніготанення вуличних майданчиків</a></li>
                         <li><a href="#">Обігрів водостічної системи</a></li>
@@ -112,7 +112,7 @@
         <div class="burger-menu" id="menu">
             <div class="burger-menu__header">
                 <div class="container">
-                    <a href="/"><img src="image/white-logo.svg" alt="white-logo"></a>
+                    <a href="/"><img src="/image/white-logo.svg" alt="white-logo"></a>
                     <a href="#" id="burger-catalog" class="button-menu burger-menu__button">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -124,14 +124,14 @@
                         </svg>Каталог продукції
                     </a>
                     <a href="#" id="menu-close" class="burger-menu__close">
-                        <img src="image/close.svg" alt="close">
+                        <img src="/image/close.svg" alt="close">
                     </a>
                 </div>
             </div>
             <div class="burger-menu__body">
                 <div class="container">
                     <div class="search-input">
-                        <label for="search"><a href="#"><img src="image/search-input.svg" alt="search"></a></label>
+                        <label for="search"><a href="#"><img src="/image/search-input.svg" alt="search"></a></label>
                         <input id="search" type="text">
                     </div>
                     <ul class="burger-menu__links">
@@ -141,9 +141,9 @@
                         <li><a href="design.html">Дизайнерам та архітекторам</a></li>
                         <li><a href="company.html">Компанія</a></li>
                         <div class="burger-menu__social-media">
-                            <a href="#"><img src="image/facebook-menu.svg" alt="facebook"></a>
-                            <a href="#"><img src="image/instagram-menu.svg" alt="instagram"></a>
-                            <a href="#"><img src="image/in-menu.svg" alt="in"></a>
+                            <a href="#"><img src="/image/facebook-menu.svg" alt="facebook"></a>
+                            <a href="#"><img src="/image/instagram-menu.svg" alt="instagram"></a>
+                            <a href="#"><img src="/image/in-menu.svg" alt="in"></a>
                         </div>
                     </ul>
                 </div>
@@ -152,10 +152,10 @@
                 <div class="container">
                     <div class="burger-menu__left">
                         <a href="tel:+380967246400">
-                            <img src="image/kyivstar.svg" alt="kyivstar">+38 096 724 64 00
+                            <img src="/image/kyivstar.svg" alt="kyivstar">+38 096 724 64 00
                         </a>
                         <a href="tel:+380997246400">
-                            <img src="image/vodafone.svg" alt="vodafone">+38 099 724 64 00
+                            <img src="/image/vodafone.svg" alt="vodafone">+38 099 724 64 00
                         </a>
                     </div>
                     <ul class="burger-menu__right">
@@ -164,9 +164,9 @@
                     </ul>
                 </div>
                 <div class="burger-menu__networks">
-                    <a href="/facebook.com"><img src="image/facebook-menu.svg" alt="facebook-menu"></a>
-                    <a href="/instagram.com"><img src="image/instagram-menu.svg" alt="instagram-menu"></a>
-                    <a href="/in.com"><img src="image/in-menu.svg" alt="in-menu"></a>
+                    <a href="/facebook.com"><img src="/image/facebook-menu.svg" alt="facebook-menu"></a>
+                    <a href="/instagram.com"><img src="/image/instagram-menu.svg" alt="instagram-menu"></a>
+                    <a href="/in.com"><img src="/image/in-menu.svg" alt="in-menu"></a>
                 </div>
             </div>
         </div>
@@ -175,17 +175,17 @@
 
         <div class="header__head">
             <a href="tel:+380967246400">
-                <img src="image/kyivstar.svg" alt="kyivstar">+38 096 724 64 00
+                <img src="/image/kyivstar.svg" alt="kyivstar">+38 096 724 64 00
             </a>
             <a href="tel:+380997246400">
-                <img src="image/vodafone.svg" alt="vodafone">+38 099 724 64 00
+                <img src="/image/vodafone.svg" alt="vodafone">+38 099 724 64 00
             </a>
         </div>
         <div class="header__body">
             <div class="container">
                 <div class="header__info">
                     <div class="header__logo">
-                        <a href="/"><img src="image/logo.svg" alt="logo"></a>
+                        <a href="/"><img src="/image/logo.svg" alt="logo"></a>
                         <ul class="logo__list">
                             <li>Smart</li>
                             <li>Heating</li>
@@ -194,10 +194,10 @@
                     </div>
                     <div class="header__operators">
                         <a href="tel:+380967246400">
-                            <img src="image/kyivstar.svg" alt="kyivstar">+38 096 724 64 00
+                            <img src="/image/kyivstar.svg" alt="kyivstar">+38 096 724 64 00
                         </a>
                         <a href="tel:+380997246400">
-                            <img src="image/vodafone.svg" alt="vodafone">+38 099 724 64 00
+                            <img src="/image/vodafone.svg" alt="vodafone">+38 099 724 64 00
                         </a>
                     </div>
                     <ul class="header__contacts">
@@ -205,7 +205,7 @@
                         <li>м. Київ, вул. В. Хвойки, 10, оф. 3</li>
                     </ul>
                     <a href="#" id="search-button" class="button-menu header__search">
-                        <img src="image/search-modal.svg" alt="search">
+                        <img src="/image/search-modal.svg" alt="search">
                         <p>Пошук</p>
                     </a>
 
@@ -214,7 +214,7 @@
                     <div id="search-menu" class="search">
                         <div class="search-input">
                             <label for="search">
-                                <a id="search-icon" href="search-result.html"><img src="image/search-input.svg" alt="search"></a>
+                                <a id="search-icon" href="search-result.html"><img src="/image/search-input.svg" alt="search"></a>
                             </label>
                             <input id="search" type="text">
                         </div>
@@ -259,7 +259,7 @@
             <p>Досвід Comfort Heat та високі стандарти компанії є міцною основою в реалізації проектів будь-якої
                 складності.</p>
             <div class="info__button partner__block-info margin--left">
-                <a href="projects.html">Більше проектів<img src="image/arrow-down-light.svg" alt="arrow"></a>
+                <a href="projects.html">Більше проектів<img src="/image/arrow-down-light.svg" alt="arrow"></a>
             </div>
         </div>
     </div>
@@ -271,35 +271,35 @@
         <div class="footer__body">
             <div class="container">
                 <div class="footer__logo">
-                    <a href="/"><img src="image/white-logo.svg" alt="white-logo"></a>
+                    <a href="/"><img src="/image/white-logo.svg" alt="white-logo"></a>
                 </div>
                 <div class="footer__contacts">
                     <h3>Контакти</h3>
                     <p>м. Київ, вул. В. Хвойки, 10, оф. 3</p>
                     <ul class="footer__operators">
                         <li>
-                            <a href="tel:+380997246400"><img src="image/kyivstar.svg" alt="kyivstar">+38 099 724 64
+                            <a href="tel:+380997246400"><img src="/image/kyivstar.svg" alt="kyivstar">+38 099 724 64
                                 00</a>
                         </li>
                         <li>
-                            <a href="tel:+380967246400"><img src="image/vodafone.svg" alt="vodafone">+38 096 724 64
+                            <a href="tel:+380967246400"><img src="/image/vodafone.svg" alt="vodafone">+38 096 724 64
                                 00</a>
                         </li>
                         <li>
-                            <a href="tel:+380937246400"><img src="image/lifecell.svg" alt="lifecell">+38 093 724 64
+                            <a href="tel:+380937246400"><img src="/image/lifecell.svg" alt="lifecell">+38 093 724 64
                                 00</a>
                         </li>
                     </ul>
                     <p><a href="mailto:office@comfortheat.kiev.ua">office@comfortheat.kiev.ua</a></p>
                     <div class="footer__social-media">
                         <a href="#">
-                            <img src="image/facebook.svg" alt="facebook">
+                            <img src="/image/facebook.svg" alt="facebook">
                         </a>
                         <a href="#">
-                            <img src="image/instagram.svg" alt="instagram">
+                            <img src="/image/instagram.svg" alt="instagram">
                         </a>
                         <a href="#">
-                            <img src="image/in.svg" alt="in">
+                            <img src="/image/in.svg" alt="in">
                         </a>
                     </div>
                 </div>
@@ -313,14 +313,14 @@
             </div>
         </div>
         <div class="footer__map">
-            <img src="image/map.svg" alt="map">
+            <img src="/image/map.svg" alt="map">
         </div>
     </div>
     <div class="container">
         <div class="footer__end">
             <p>© Comfort Heat - офіційний дистриб'ютор</p>
             <div class="footer__development">
-                <img src="image/ingsot.svg" alt="ingsot">Розроблено в Ingsot
+                <img src="/image/ingsot.svg" alt="ingsot">Розроблено в Ingsot
             </div>
         </div>
     </div>

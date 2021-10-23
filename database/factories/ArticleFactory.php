@@ -23,7 +23,7 @@ class ArticleFactory extends Factory
     public function definition()
     {
         $image = $this->faker->randomElement([rand(1, 5)]);
-        $name = $this->faker->title();
+        $name = $this->faker->sentence(rand(5, 10));
         $isPublished = rand(1,5) > 1;
 
         return [

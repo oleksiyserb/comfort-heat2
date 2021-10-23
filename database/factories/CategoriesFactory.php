@@ -22,7 +22,7 @@ class CategoriesFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->unique()->name(),
+            'name' => $this->faker->unique()->name(rand(5, 20)),
             'parent_id' => rand(1, 20),
             'created_at' => now(),
             'updated_at' => now()

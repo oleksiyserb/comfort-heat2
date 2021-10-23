@@ -5,7 +5,7 @@
             <div class="hero__title">
                 <h1>Професійне партнерство</h1>
                 <div class="info__button hero__button margin--left">
-                    <a href="#">Стати партнером <img src="image/arrow-down.svg" alt="arrow"></a>
+                    <a href="#">Стати партнером <img src="/image/arrow-down.svg" alt="arrow"></a>
                 </div>
             </div>
         </div>
@@ -25,13 +25,13 @@
                     комфорта и безопасности при низком энергопотреблении и минимальных затратах на техническое
                     обслуживание.</p>
                 <div class="info__button company__button margin--left">
-                    <a href="#">Більше про компанію<img src="image/arrow-down-light.svg" alt="arrow"></a>
+                    <a href="#">Більше про компанію<img src="/image/arrow-down-light.svg" alt="arrow"></a>
                 </div>
             </div>
         </div>
         <div class="company__years">
-            <img src="image/25.svg" alt="25_years">
-            <img src="image/office.png" alt="office">
+            <img src="/image/25.svg" alt="25_years">
+            <img src="/image/office.png" alt="office">
         </div>
     </section>
 
@@ -40,34 +40,19 @@
         <div class="container">
             <h1 class="title">Проєкти</h1>
             <div class="info project__wrapper">
-                <div class="info__item">
-                    <h3>Новое административное здание АО SEB bankas ул. Р.Баравико, Вильнюс, 2020, Литва</h3>
-                    <div class="info__button project__details">
-                        <a href="one-project.html">Детальніше<img src="image/arrow-down.svg" alt="arrow"></a>
-                    </div>
-                </div>
-                <div class="info__item project__picture">
-                    <img src="image/hotel.png" alt="hotel">
-                    <h3>Отель „Hilton Garden Inn“, Вильнюс, 2019</h3>
-                    <div class="info__button project__details">
-                        <a href="one-project.html">Детальніше<img src="image/arrow-down.svg" alt="arrow"></a>
-                    </div>
-                </div>
-                <div class="info__item">
-                    <h3>Snow Arena, Друскининкай, Литва, 2011</h3>
-                    <div class="info__button project__details">
-                        <a href="one-project.html">Детальніше<img src="image/arrow-down.svg" alt="arrow"></a>
-                    </div>
-                </div>
-                <div class="info__item">
-                    <h3>Завод Oреон Глобал ПЭТ, Клайпеда, Литва, 2014</h3>
-                    <div class="info__button project__details">
-                        <a href="one-project.html">Детальніше<img src="image/arrow-down.svg" alt="arrow"></a>
-                    </div>
-                </div>
+
+                @foreach($projects as $project)
+                    @php
+                        /* @var $project \App\Models\Projects */
+                    @endphp
+
+                    <x-project-item :project="$project" class="{{ $project->image ? 'project__picture' : '' }}" />
+
+                @endforeach
+
             </div>
             <div class="info__button project__info margin--left">
-                <a href="projects.html">Більше проектів<img src="image/arrow-down.svg" alt="arrow"></a>
+                <a href="{{ url('projects') }}">Більше проектів<img src="/image/arrow-down.svg" alt="arrow"></a>
             </div>
         </div>
     </section>
