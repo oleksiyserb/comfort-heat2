@@ -4,7 +4,9 @@
 @endphp
 
 <div {{ $attributes->merge(['class' => 'info__item']) }}>
-    <img src="{{ asset('storage/' . $project->image) }}" alt="hotel">
+    @if ($project->image)
+        <img src="{{ asset('storage/' . $project->image) }}" alt="hotel">
+    @endif
     <h3>{{ $project->name }}</h3>
     <div class="info__button project__details">
         <a href="{{ url('projects/' . $project->slug) }}">Детальніше<img src="/image/arrow-down.svg" alt="arrow"></a>

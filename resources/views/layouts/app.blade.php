@@ -135,7 +135,7 @@
                         <input id="search" type="text">
                     </div>
                     <ul class="burger-menu__links">
-                        <li><a href="news.html">Новини</a></li>
+                        <li><a href="{{ url('articles') }}">Новини</a></li>
                         <li><a href="services.html">Сервіс та обслуговування</a></li>
                         <li><a href="technical.html">Технічна інформація</a></li>
                         <li><a href="design.html">Дизайнерам та архітекторам</a></li>
@@ -259,7 +259,7 @@
             <p>Досвід Comfort Heat та високі стандарти компанії є міцною основою в реалізації проектів будь-якої
                 складності.</p>
             <div class="info__button partner__block-info margin--left">
-                <a href="projects.html">Більше проектів<img src="/image/arrow-down-light.svg" alt="arrow"></a>
+                <a href="{{ url('projects') }}">Більше проектів<img src="/image/arrow-down-light.svg" alt="arrow"></a>
             </div>
         </div>
     </div>
@@ -304,7 +304,7 @@
                     </div>
                 </div>
                 <div class="footer__menu">
-                    <a href="news.html">Новини</a>
+                    <a href="{{ url('articles') }}">Новини</a>
                     <a href="services.html">Сервіс та обслуговування</a>
                     <a href="technical.html">Технічна інформація</a>
                     <a href="design.html">Дизайнерам та архітекторам</a>
@@ -327,8 +327,8 @@
 </footer>
 
 <!-- Scripts -->
-<script src="js/script.js"></script>
-<script src="js/modal.js"></script>
+<script src="{{ asset('js/script.js') }}"></script>
+<script src="{{ asset('js/modal.js') }}"></script>
 </body>
 
 </html>
