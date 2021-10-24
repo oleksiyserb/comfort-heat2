@@ -16,15 +16,18 @@ class CategoriesTableSeeder extends Seeder
     {
         $categories = [];
 
-        $cName = 'Без категорії';
-        $categories[] =[
-            'name' => $cName,
-            'parent_id' => 0
-        ];
+        for($i = 1; $i <= 5; $i++) {
+            $cName = 'Основна категорія #' . $i;
 
-        for ($i = 2; $i <= 20; $i++) {
+            $categories[] =[
+                'name' => $cName,
+                'parent_id' => 0
+            ];
+        }
+
+        for ($i = 1; $i <= 15; $i++) {
             $cName = 'Категорія #'.$i;
-            $parentId = rand(1, 20);
+            $parentId = rand(1, 5);
 
             $categories[] =[
                 'name' => $cName,

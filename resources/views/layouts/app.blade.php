@@ -30,66 +30,40 @@
                 <a id="modal-close" href="#"><img src="/image/close-catalog.svg" alt="close-catalog"></a>
                 <a id="close-laptop" href="#"><img src="/image/close.svg" alt="close-laptop"></a>
             </div>
+
+            @php
+                /* @var $category \App\Models\Categories */
+
+                $categories = \App\Models\Categories::all();
+
+                $subcategories = $categories->filter(function ($item) {
+                    return $item->parent_id > 0;
+                })->values();
+            @endphp
+
             <div class="catalog-modal__body">
                 <div class="catalog-modal__left">
-                    <ul class="catalog-modal__item">
-                        <a class="catalog-modal__first-button" href="#">
-                            Тепла підлога<img src="/image/arrow-down-orange.svg" alt="arrow">
-                        </a>
-                        <li><a href="#">Під плитку</a></li>
-                        <li><a href="#">В стяжку</a></li>
-                        <li><a href="#">Під ламінат</a></li>
-                    </ul>
-                    <ul class="catalog-modal__item">
-                        <a class="catalog-modal__first-button" href="#">
-                            Опалення<img src="/image/arrow-down-orange.svg" alt="arrow">
-                        </a>
-                        <li><a href="#">Сніготанення вуличних майданчиків</a></li>
-                        <li><a href="#">Обігрів водостічної системи</a></li>
-                        <li><a href="#">Захист труб від замерзання</a></li>
-                    </ul>
-                    <ul class="catalog-modal__item">
-                        <a class="catalog-modal__first-button" href="#">
-                            Вуличні системи<img src="/image/arrow-down-orange.svg" alt="arrow">
-                        </a>
-                        <li><a href="#">Обігрів водостічної системи</a></li>
-                        <li><a href="#">Захист труб від замерзання</a></li>
-                    </ul>
-                    <ul class="catalog-modal__item">
-                        <a class="catalog-modal__first-button" href="#">
-                            Технологічний обігрів<img src="/image/arrow-down-orange.svg" alt="arrow">
-                        </a>
-                        <li><a href="#">В стяжку</a></li>
-                    </ul>
-                    <ul class="catalog-modal__item">
-                        <a class="catalog-modal__first-button" href="#">
-                            Нагрівальні мати<img src="/image/arrow-down-orange.svg" alt="arrow">
-                        </a>
-                        <li><a href="#">Під плитку</a></li>
-                        <li><a href="#">В стяжку</a></li>
-                    </ul>
-                    <ul class="catalog-modal__item">
-                        <a class="catalog-modal__first-button" href="#">
-                            Нагрівальні кабелі<img src="/image/arrow-down-orange.svg" alt="arrow">
-                        </a>
-                        <li><a href="#">Обігрів водостічної системи</a></li>
-                        <li><a href="#">Захист труб від замерзання</a></li>
-                    </ul>
-                    <ul class="catalog-modal__item">
-                        <a class="catalog-modal__first-button" href="#">
-                            Додаткове обладнання<img src="/image/arrow-down-orange.svg" alt="arrow">
-                        </a>
-                        <li><a href="#">Обігрів водостічної системи</a></li>
-                        <li><a href="#">Захист труб від замерзання</a></li>
-                    </ul>
-                    <ul class="catalog-modal__item">
-                        <a class="catalog-modal__first-button" href="#">
-                            Терморегулятори<img src="/image/arrow-down-orange.svg" alt="arrow">
-                        </a>
-                        <li><a href="#">Сніготанення вуличних майданчиків</a></li>
-                        <li><a href="#">Обігрів водостічної системи</a></li>
-                        <li><a href="#">Захист труб від замерзання</a></li>
-                    </ul>
+
+                    @foreach($categories as $category)
+                        @if ($category->parent_id == 0)
+                            <ul class="catalog-modal__item">
+                                <a class="catalog-modal__first-button" href="#">
+
+                                    {{ $category->name }}
+
+                                    <img src="/image/arrow-down-orange.svg" alt="arrow">
+                                </a>
+
+                                @foreach($subcategories as $subcategory)
+                                    @if ($subcategory->parent_id == $category->id)
+                                        <li><a href="#">{{ $subcategory->name }}</a></li>
+                                    @endif
+                                @endforeach
+
+                            </ul>
+                        @endif
+                    @endforeach
+
                 </div>
                 <div class="catalog-modal__right">
                     <a href="category.html">Сніготанення вуличних майданчиків</a>
@@ -136,14 +110,13 @@
                     </div>
                     <ul class="burger-menu__links">
                         <li><a href="{{ url('articles') }}">Новини</a></li>
-                        <li><a href="services.html">Сервіс та обслуговування</a></li>
-                        <li><a href="technical.html">Технічна інформація</a></li>
-                        <li><a href="design.html">Дизайнерам та архітекторам</a></li>
-                        <li><a href="company.html">Компанія</a></li>
+                        <li><a href="{{ url('projects') }}">Проєкти</a></li>
+                        <li><a href="{{ url('technical') }}">Технічна інформація</a></li>
+                        <li><a href="{{ url('about') }}">Компанія</a></li>
                         <div class="burger-menu__social-media">
-                            <a href="#"><img src="/image/facebook-menu.svg" alt="facebook"></a>
-                            <a href="#"><img src="/image/instagram-menu.svg" alt="instagram"></a>
-                            <a href="#"><img src="/image/in-menu.svg" alt="in"></a>
+                            <a href="https://www.facebook.com/"><img src="/image/facebook-menu.svg" alt="facebook"></a>
+                            <a href="https://www.instagram.com/"><img src="/image/instagram-menu.svg" alt="instagram"></a>
+                            <a href="https://www.linkedin.com/"><img src="/image/in-menu.svg" alt="in"></a>
                         </div>
                     </ul>
                 </div>
@@ -164,9 +137,9 @@
                     </ul>
                 </div>
                 <div class="burger-menu__networks">
-                    <a href="/facebook.com"><img src="/image/facebook-menu.svg" alt="facebook-menu"></a>
-                    <a href="/instagram.com"><img src="/image/instagram-menu.svg" alt="instagram-menu"></a>
-                    <a href="/in.com"><img src="/image/in-menu.svg" alt="in-menu"></a>
+                    <a href="https://www.facebook.com/"><img src="/image/facebook-menu.svg" alt="facebook-menu"></a>
+                    <a href="https://www.instagram.com/"><img src="/image/instagram-menu.svg" alt="instagram-menu"></a>
+                    <a href="https://www.linkedin.com/"><img src="/image/in-menu.svg" alt="in-menu"></a>
                 </div>
             </div>
         </div>
@@ -212,12 +185,14 @@
                     <!-- Modal search -->
 
                     <div id="search-menu" class="search">
-                        <div class="search-input">
+                        <form action="/" class="search-input">
                             <label for="search">
-                                <a id="search-icon" href="search-result.html"><img src="/image/search-input.svg" alt="search"></a>
+                                <button type="submit" id="search-icon">
+                                    <img src="/image/search-input.svg" alt="search">
+                                </button>
                             </label>
-                            <input id="search" type="text">
-                        </div>
+                            <input id="search" type="text" required>
+                        </form>
                     </div>
 
                     <!-- Modal search end -->
@@ -305,10 +280,9 @@
                 </div>
                 <div class="footer__menu">
                     <a href="{{ url('articles') }}">Новини</a>
-                    <a href="services.html">Сервіс та обслуговування</a>
-                    <a href="technical.html">Технічна інформація</a>
-                    <a href="design.html">Дизайнерам та архітекторам</a>
-                    <a href="company.html">Компанія</a>
+                    <a href="{{ url('projects') }}">Проєкти</a>
+                    <a href="{{ url('technical') }}">Технічна інформація</a>
+                    <a href="{{ url('about') }}">Компанія</a>
                 </div>
             </div>
         </div>
