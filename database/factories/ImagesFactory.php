@@ -24,7 +24,7 @@ class ImagesFactory extends Factory
         $image = $this->faker->randomElement([rand(1, 5)]);
 
         return [
-            'product_id' => rand(1, 30),
+            'product_id' => rand(1, 100),
             'image' => 'images/illustration-' . $image . '.png',
             'created_at' => now(),
             'updated_at' => now()

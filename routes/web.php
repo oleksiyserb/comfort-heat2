@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
@@ -17,17 +18,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Site
 Route::get('/', [SiteController::class, 'index']);
 Route::get('/technical', [SiteController::class, 'technical']);
 Route::get('/about', [SiteController::class, 'about']);
 
+// Project
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects/{project:slug}', [ProjectController::class, 'show']);
 
+// Articles
 Route::get('/articles', [ArticleController::class, 'index']);
 Route::get('/articles/{article:slug}', [ArticleController::class, 'show']);
 
+// Category
 Route::get('/categories/{category:slug}', [CategoriesController::class, 'show']);
+
+// Products
+Route::get('/products/{product:slug}', [ProductController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

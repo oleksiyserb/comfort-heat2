@@ -46,14 +46,30 @@ class Product extends Model
     use HasFactory;
 
     const NO_IMAGE = 'images/no-image.jpg';
+    const AVAILABLE = 1;
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function images()
     {
         return $this->hasMany(Images::class, 'product_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\HigherOrderBuilderProxy|mixed|string
+     */
     public function getImage()
     {
         return $this->images()->first() ? $this->images()->first()->image : self::NO_IMAGE;
+    }
+
+    public function getStatus()
+    {
+        if ($this->status == self::AVAILABLE) {
+            return 'В наявності';
+        } else {
+            return 'Немає на складі';
+        }
     }
 }
