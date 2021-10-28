@@ -27,6 +27,7 @@ class ProductFactory extends Factory
             'category_id' => rand(1, 20),
             'author_id' => rand(1, 10),
             'name' => $title,
+            'price' => $this->faker->randomNumber(),
             'slug' => $this->faker->unique()->slug(),
             'excerpt' => $this->faker->text(rand(40, 100)),
             'body' => $this->faker->realText(rand(1000, 4000)),

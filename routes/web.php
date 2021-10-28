@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,8 @@ Route::get('/projects/{project:slug}', [ProjectController::class, 'show']);
 
 Route::get('/articles', [ArticleController::class, 'index']);
 Route::get('/articles/{article:slug}', [ArticleController::class, 'show']);
+
+Route::get('/categories/{category:slug}', [CategoriesController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

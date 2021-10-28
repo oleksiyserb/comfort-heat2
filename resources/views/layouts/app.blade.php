@@ -47,7 +47,7 @@
                     @foreach($categories as $category)
                         @if ($category->parent_id == 0)
                             <ul class="catalog-modal__item">
-                                <a class="catalog-modal__first-button" href="#">
+                                <a class="catalog-modal__first-button" href="{{ url('categories/' . $category->slug) }}">
 
                                     {{ $category->name }}
 
@@ -56,7 +56,7 @@
 
                                 @foreach($subcategories as $subcategory)
                                     @if ($subcategory->parent_id == $category->id)
-                                        <li><a href="#">{{ $subcategory->name }}</a></li>
+                                        <li><a href="{{ url('categories/' . $subcategory->slug) }}">{{ $subcategory->name }}</a></li>
                                     @endif
                                 @endforeach
 
@@ -64,11 +64,6 @@
                         @endif
                     @endforeach
 
-                </div>
-                <div class="catalog-modal__right">
-                    <a href="category.html">Сніготанення вуличних майданчиків</a>
-                    <a href="category.html">Обігрів водостічної системи</a>
-                    <a href="category.html">Захист труб від замерзання</a>
                 </div>
             </div>
         </div>
@@ -303,6 +298,7 @@
 <!-- Scripts -->
 <script src="{{ asset('js/script.js') }}"></script>
 <script src="{{ asset('js/modal.js') }}"></script>
+<script src="{{ asset('js/sort-products.js') }}"></script>
 </body>
 
 </html>

@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $category_id
  * @property int $author_id
  * @property string $name
+ * @property int $price
  * @property string $slug
  * @property string $excerpt
  * @property string $body
@@ -43,4 +44,16 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+
+    const NO_IMAGE = 'images/no-image.jpg';
+
+    public function images()
+    {
+        return $this->hasMany(Images::class, 'product_id');
+    }
+
+    public function getImage()
+    {
+        return $this->images()->first() ? $this->images()->first()->image : self::NO_IMAGE;
+    }
 }
