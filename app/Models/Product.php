@@ -48,12 +48,38 @@ class Product extends Model
     const NO_IMAGE = 'images/no-image.jpg';
     const AVAILABLE = 1;
 
+    public function scopeFilter($query, array $filters)
+    {
+        if(request()->has('body')) {
+            $query->when($filters['body'] ?? false, fn($query) =>
+                $query->where('body', 'like', '%' . request('name') . '%')
+            );
+        } else {
+            $query->when($filters['name'] ?? false, fn($query, $name) =>
+                $query->where('name', 'like', '%' . $name . '%')
+            );
+        }
+
+        if (request('category') != 0) {
+            $query->when($filters['category'] ?? false, fn($query, $category) =>
+                $query->whereHas('categories', fn($query) =>
+                    $query->where('slug', $category)
+                )
+            );
+        }
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function images()
     {
         return $this->hasMany(Images::class, 'product_id');
+    }
+
+    public function categories()
+    {
+        return $this->belongsTo(Categories::class, 'category_id');
     }
 
     /**

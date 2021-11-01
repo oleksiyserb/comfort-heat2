@@ -110,8 +110,11 @@ select {
   border-radius: 25px;
   border: 1px solid #BDE3FB;
 }
-.search-input label {
+.search-input button {
   position: absolute;
+  border: none;
+  background: transparent;
+  cursor: pointer;
   right: 1em;
 }
 
@@ -192,9 +195,10 @@ h4 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  -webkit-box-pack: inherit;
+      -ms-flex-pack: inherit;
+          justify-content: space-between;
 }
 .pagination__block {
   display: -webkit-box;

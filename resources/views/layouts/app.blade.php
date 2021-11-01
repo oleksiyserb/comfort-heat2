@@ -180,13 +180,11 @@
                     <!-- Modal search -->
 
                     <div id="search-menu" class="search">
-                        <form action="/" class="search-input">
-                            <label for="search">
-                                <button type="submit" id="search-icon">
-                                    <img src="/image/search-input.svg" alt="search">
-                                </button>
-                            </label>
-                            <input id="search" type="text" required>
+                        <form action="/search" class="search-input">
+                            <input name="name" id="search" type="text" required>
+                            <button type="submit" id="search-icon">
+                                <img src="/image/search-input.svg" alt="search">
+                            </button>
                         </form>
                     </div>
 

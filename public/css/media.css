@@ -338,6 +338,9 @@
   .search-input {
     margin: 4.375em 2.5em;
   }
+  .search-input > button {
+      border: none;
+  }
   .search.open {
     opacity: 1;
     visibility: visible;
