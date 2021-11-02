@@ -87,7 +87,7 @@ class Product extends Model
      */
     public function getImage()
     {
-        return $this->images()->first() ? $this->images()->first()->image : self::NO_IMAGE;
+        return $this->images->count() > 0 ? $this->images->first()->image : self::NO_IMAGE;
     }
 
     public function getStatus()

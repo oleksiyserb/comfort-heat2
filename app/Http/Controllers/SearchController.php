@@ -12,7 +12,7 @@ class SearchController extends Controller
     {
         return view('search.index', [
             'categories' => Categories::all(),
-            'products' => Product::latest()->filter(
+            'products' => Product::with('images')->latest()->filter(
                 request(['name', 'body', 'category'])
             )->paginate(16)->withQueryString()
         ]);

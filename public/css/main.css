@@ -911,11 +911,11 @@ li.active {
   cursor: pointer;
   padding: 0.5625em 1.125em;
   display: block;
-  width: 100%;
+  width: 230px;
   border-radius: 20px;
   color: #007AC9;
   font-weight: 600;
-  border-color: #BDE3FB;
+  border: 1px solid #BDE3FB;
   -webkit-appearance: none;
   background-color: transparent;
 }
