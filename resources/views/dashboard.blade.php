@@ -1,17 +1,43 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
+<x-admin-layout>
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold text-gray-900">
+                Admin Panel
+            </h1>
+        </div>
+    </header>
+    <main>
+        <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 grid sm:grid-cols-3 xs:grid-cols-2 gap-5">
+            <div class="text-center border border-2 border-gray-200 rounded-xl shadow bg-white">
+                <h1 class="text-lg font-bold m-3">Instrument 1</h1>
+                <hr>
+                <a href="/link" class="m-3 block font-bold hover:text-blue-400 focus:outline-none">Перейти</a>
+            </div>
+            <div class="text-center border border-2 border-gray-200 rounded-xl shadow bg-white">
+                <h1 class="text-lg font-bold m-3">Instrument 1</h1>
+                <hr>
+                <a href="/link" class="m-3 block font-bold hover:text-blue-400 focus:outline-none">Перейти</a>
+            </div>
+            <div class="text-center border border-2 border-gray-200 rounded-xl shadow bg-white">
+                <h1 class="text-lg font-bold m-3">Instrument 1</h1>
+                <hr>
+                <a href="/link" class="m-3 block font-bold hover:text-blue-400 focus:outline-none">Перейти</a>
+            </div>
+            <div class="text-center border border-2 border-gray-200 rounded-xl shadow bg-white">
+                <h1 class="text-lg font-bold m-3">Instrument 1</h1>
+                <hr>
+                <a href="/link" class="m-3 block font-bold hover:text-blue-400 focus:outline-none">Перейти</a>
+            </div>
+            <div class="text-center border border-2 border-gray-200 rounded-xl shadow bg-white">
+                <h1 class="text-lg font-bold m-3">Instrument 1</h1>
+                <hr>
+                <a href="/link" class="m-3 block font-bold hover:text-blue-400 focus:outline-none">Перейти</a>
+            </div>
+            <div class="text-center border border-2 border-gray-200 rounded-xl shadow bg-white">
+                <h1 class="text-lg font-bold m-3">Instrument 1</h1>
+                <hr>
+                <a href="/link" class="m-3 block font-bold hover:text-blue-400 focus:outline-none">Перейти</a>
             </div>
         </div>
-    </div>
-</x-app-layout>
+    </main>
+</x-admin-layout>
