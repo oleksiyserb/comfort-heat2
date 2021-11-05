@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductController;
@@ -40,6 +41,12 @@ Route::get('/search', [SearchController::class, 'index']);
 
 // Products
 Route::get('/products/{product:slug}', [ProductController::class, 'show']);
+
+// ----------------------------------------Admin---------------------------------------------------------------
+Route::group(['prefix' => 'admin'], function () {
+    // Admin Products
+    Route::resource('products', AdminProductController::class)->names('admin.products');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

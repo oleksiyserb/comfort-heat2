@@ -10,9 +10,7 @@
                 @endforeach
 
             </div>
-            <div class="pagination">
-                {{ $projects->links() }}
-            </div>
+            {{ $projects->links() }}
         </div>
     </section>
 </x-app-layout>

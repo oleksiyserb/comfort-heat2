@@ -12,6 +12,9 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            gridTemplateRows: {
+                '[auto,auto,1fr]': 'auto auto 1fr',
+            },
         },
     },
 
@@ -21,5 +24,8 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/aspect-ratio')
+    ],
 };
