@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Product\ProductStoreRequest;
+use App\Models\Categories;
 use App\Models\Product;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class AdminProductController extends Controller
@@ -20,29 +21,34 @@ class AdminProductController extends Controller
     public function index()
     {
         return view('admin.products.index', [
-            'products' => Product::paginate(20)
+            'products' => Product::latest()->paginate(20)
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return void
+     * @return Application|Factory|View
      */
     public function create()
     {
-        dd(__METHOD__);
+        return view('admin.products.create', [
+            'categories' => Categories::where('parent_id', '>', 0)->get()
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return void
+     * @param ProductStoreRequest $request
+     * @return string
      */
-    public function store(Request $request)
+    public function store(ProductStoreRequest $request)
     {
-        dd(__METHOD__);
+        $attributes = $request->all();
+
+        Product::create($attributes);
+        return redirect('/admin/products');
     }
 
     /**

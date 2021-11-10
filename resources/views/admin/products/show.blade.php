@@ -64,9 +64,7 @@
                         <h3 class="text-sm mb-4 text-gray-900 font-black">Опис:</h3>
 
                         <div class="space-y-6">
-                            <p class="text-base text-gray-900">
-                                {{ $product->body }}
-                            </p>
+                            {!! $product->body !!}
                         </div>
                     </div>
 
@@ -75,7 +73,7 @@
 
                         <div class="space-y-6">
                             <p class="text-base text-gray-900">
-                                {{ $product->technical }}
+                                {!! $product->technical !!}
                             </p>
                         </div>
                     </div>

@@ -48,6 +48,10 @@ class Product extends Model
     const NO_IMAGE = 'images/no-image.jpg';
     const AVAILABLE = 1;
 
+    protected $fillable = [
+        'name', 'price', 'slug', 'excerpt', 'body', 'manufacturer', 'status', 'technical', 'model', 'category_id'
+    ];
+
     public function scopeFilter($query, array $filters)
     {
         if(request()->has('body')) {

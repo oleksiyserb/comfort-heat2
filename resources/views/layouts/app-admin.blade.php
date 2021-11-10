@@ -15,6 +15,8 @@
 
     <!-- JavaScript -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    @stack('styles')
 </head>
 <body class="bg-gray-50">
     <div class="min-h-full">
@@ -143,9 +145,12 @@
                 </div>
             </div>
         </nav>
-
-        {{ $slot }}
-
     </div>
+
+    <main>
+        {{ $slot }}
+    </main>
+
+    @stack('scripts')
 </body>
 </html>

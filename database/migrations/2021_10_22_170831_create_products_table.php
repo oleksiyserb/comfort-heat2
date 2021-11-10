@@ -19,12 +19,12 @@ class CreateProductsTable extends Migration
             $table->foreignId('author_id')->constrained('users')->cascadeOnDelete();
             $table->string('name');
             $table->integer('price');
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->nullable();
             $table->string('excerpt');
             $table->text('body');
             $table->string('manufacturer');
             $table->integer('status')->default(1);
-            $table->text('technical');
+            $table->text('technical')->nullable();
             $table->string('model');
             $table->timestamps();
         });
