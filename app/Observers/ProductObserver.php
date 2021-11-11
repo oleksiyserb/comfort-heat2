@@ -12,6 +12,11 @@ class ProductObserver
         $this->setUser($product);
     }
 
+    public function updating(Product $product)
+    {
+        $this->setSlug($product);
+    }
+
     protected function setSlug(Product $product)
     {
         if (empty($product->slug)) {

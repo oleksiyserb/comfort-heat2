@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\ProductStoreRequest;
+use App\Http\Requests\Product\ProductUpdateRequest;
 use App\Models\Categories;
 use App\Models\Product;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 
 class AdminProductController extends Controller
 {
@@ -58,41 +61,50 @@ class AdminProductController extends Controller
     public function show($slug)
     {
         return view('admin.products.show', [
-            'product' => Product::where('slug', $slug)->with('images')->firstOrFail(),
+            'product' => Product::where('slug', $slug)->firstOrFail(),
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return Response
+     * @param $slug
+     * @return Application|Factory|View
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        dd(__METHOD__);
+        return view('admin.products.edit', [
+            'product' => Product::where('slug', $slug)->firstOrFail(),
+            'categories' => Categories::where('parent_id', '>', 0)->get()
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  int  $id
-     * @return Response
+     * @param ProductUpdateRequest $request
+     * @return Application|RedirectResponse|Redirector
      */
-    public function update(Request $request, $id)
+    public function update(ProductUpdateRequest $request, $id)
     {
-        dd(__METHOD__);
+        $product = Product::find($id);
+        $attributes = $request->all();
+
+        $product->update($attributes);
+        return redirect('/admin/products/' . $product->slug);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return Response
+     * @param $id
+     * @return RedirectResponse
      */
     public function destroy($id)
     {
-        dd(__METHOD__);
+        $product = Product::find($id);
+
+        $product->delete();
+        return back();
     }
 }

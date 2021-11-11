@@ -56,7 +56,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <a href="{{ url('admin/products/' . $product->slug) }}" class="text-indigo-600 hover:text-indigo-900 mx-2">Show</a>
                                     <a href="{{ url("admin/products/{$product->slug}/edit") }}" class="text-indigo-600 hover:text-indigo-900 mx-2">Edit</a>
-                                    <form class="inline-block" method="POST" action="{{ route('admin.products.destroy', $product->slug) }}">
+                                    <form class="inline-block" method="POST" action="{{ route('admin.products.destroy', $product->id) }}">
                                         @method('DELETE')
                                         @csrf
                                         <button class="text-indigo-600 hover:text-indigo-900 mx-2">
