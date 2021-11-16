@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\HigherOrderBuilderProxy;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Models\Product
@@ -74,7 +76,7 @@ class Product extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function images()
     {
@@ -87,11 +89,11 @@ class Product extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\HigherOrderBuilderProxy|mixed|string
+     * @return HigherOrderBuilderProxy|mixed|string
      */
     public function getImage()
     {
-        return $this->images->count() > 0 ? $this->images->first()->image : self::NO_IMAGE;
+        return $this->images->first();
     }
 
     public function getStatus()

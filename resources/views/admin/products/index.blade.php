@@ -38,7 +38,7 @@
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 h-10 w-10">
                                             <img class="h-10 w-10 object-cover"
-                                                 src="{{ asset('storage/' . $product->getImage()) }}"
+                                                 src="{{ asset('storage/' . ($product->getImage()->image ?? \App\Models\Product::NO_IMAGE)) }}"
                                                  alt="product-image">
                                         </div>
                                     </div>

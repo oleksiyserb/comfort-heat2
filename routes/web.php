@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminProductImagesController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductController;
@@ -46,6 +47,8 @@ Route::get('/products/{product:slug}', [ProductController::class, 'show']);
 Route::group(['prefix' => 'admin'], function () {
     // Admin Products
     Route::resource('products', AdminProductController::class)->names('admin.products');
+    Route::post('products/{product:slug}/images', [AdminProductImagesController::class, 'store']);
+    Route::delete('products/{product}/images/{images}', [AdminProductImagesController::class, 'destroy']);
 });
 
 Route::get('/dashboard', function () {

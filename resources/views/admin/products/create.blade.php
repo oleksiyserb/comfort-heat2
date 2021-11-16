@@ -21,7 +21,6 @@
                                     <x-form.input name="name" class="sm:col-span-3" />
                                     <x-form.input name="slug" class="sm:col-span-3" />
                                     <x-form.input name="price" class="sm:col-span-3" />
-
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="category_id" class="block text-sm font-medium text-gray-700">Category</label>
                                         <select id="category_id" name="category_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
