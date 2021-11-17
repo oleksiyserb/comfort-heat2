@@ -74,6 +74,8 @@
             </div>
         </div>
 
-        {{ $products->links() }}
+        <div class="mt-10">
+            {{ $products->links() }}
+        </div>
     </div>
 </x-admin-layout>

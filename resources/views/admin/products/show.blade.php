@@ -1,5 +1,3 @@
-{{--@dd($product->images->skip(1))--}}
-
 <x-admin-layout>
     <div class="bg-white">
         <div class="pt-6">
@@ -8,9 +6,11 @@
             </div>
 
             <!-- Image gallery -->
-            <div class="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
-                <div class="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4 relative">
-                    <img src="{{ asset('storage/' . ($product->getImage()->image ?? \App\Models\Product::NO_IMAGE)) }}" alt="Product 1" class="w-full h-full object-center object-cover">
+            <div class="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
+                <div
+                    class="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4 relative">
+                    <img src="{{ asset('storage/' . ($product->getImage()->image ?? \App\Models\Product::NO_IMAGE)) }}"
+                         alt="Product 1" class="w-full h-full object-center object-cover">
 
                     @if ($product->getImage())
                         <x-form.delete-image
@@ -21,22 +21,24 @@
                 </div>
 
                 @if(!$product->images->count() < 1)
-                <div class="hidden lg:grid lg:grid-cols-2 lg:gap-4">
+                    <div class="hidden lg:grid lg:grid-cols-4 lg:gap-4">
 
-                    @foreach($product->images->skip(1) as $picture)
-                    <div class="relative aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
-                        <img src="{{ asset('storage/' . $picture->image) }}" alt="Model wearing plain black basic tee." class="w-full h-full object-center object-cover">
+                        @foreach($product->images->skip(1) as $picture)
+                            <div class="relative aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
+                                <img src="{{ asset('storage/' . $picture->image) }}"
+                                     alt="Model wearing plain black basic tee."
+                                     class="w-full h-full object-center object-cover">
 
-                        @if ($product->getImage())
-                            <x-form.delete-image
-                                :product="$product"
-                                :action='url("admin/products/{$product->id}/images/{$picture->id}")'
-                            />
-                        @endif
+                                @if ($product->getImage())
+                                    <x-form.delete-image
+                                        :product="$product"
+                                        :action='url("admin/products/{$product->id}/images/{$picture->id}")'
+                                    />
+                                @endif
+                            </div>
+                        @endforeach
+
                     </div>
-                    @endforeach
-
-                </div>
                 @endif
             </div>
 
@@ -45,22 +47,24 @@
                   enctype="multipart/form-data">
                 @csrf
                 <div class="pb-4">
-                    <x-form.label name="images" />
+                    <x-form.label name="images"/>
                     <input type="file" id="images" name="images[]" multiple>
 
                     @error('images')
-                        <p class="text-red-500 text-xs">{{ $message }}</p>
+                    <p class="text-red-500 text-xs">{{ $message }}</p>
                     @enderror
                 </div>
                 <div>
-                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <button type="submit"
+                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Upload
                     </button>
                 </div>
             </form>
 
             <!-- Product info -->
-            <div class="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
+            <div
+                class="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
                 <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
                     <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
                         {{ $product->name }}
@@ -81,13 +85,16 @@
                     </div>
 
                     <div class="mt-4 flex">
-                        <a class="mr-4 font-bold text-white py-2 px-4 bg-blue-500 rounded-xl hover:bg-blue-600" href="{{ url('admin/products/'. $product->slug . '/edit') }}">
+                        <a class="mr-4 font-bold text-white py-2 px-4 bg-blue-500 rounded-xl hover:bg-blue-600"
+                           href="{{ url('admin/products/'. $product->slug . '/edit') }}">
                             Редагувати
                         </a>
                         <form method="POST" action="{{ route('admin.products.destroy', $product->slug) }}">
                             @method('DELETE')
                             @csrf
-                            <button class="font-bold text-white py-2 px-4 bg-red-500 rounded-xl hover:bg-red-600">Видалити</button>
+                            <button class="font-bold text-white py-2 px-4 bg-red-500 rounded-xl hover:bg-red-600">
+                                Видалити
+                            </button>
                         </form>
                     </div>
                 </div>

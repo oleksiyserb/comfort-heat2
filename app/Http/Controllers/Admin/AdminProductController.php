@@ -12,6 +12,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Routing\Redirector;
 
 class AdminProductController extends AdminController
@@ -23,6 +24,8 @@ class AdminProductController extends AdminController
      */
     public function index()
     {
+        Paginator::useTailwind();
+
         return view('admin.products.index', [
             'products' => Product::latest()->paginate(20)
         ]);
