@@ -21,7 +21,7 @@
                 </div>
 
                 @if(!$product->images->count() < 1)
-                    <div class="hidden lg:grid lg:grid-cols-4 lg:gap-4">
+                    <div class="@if($product->images->count() <= 7) lg:grid-cols-3 @else lg:grid-cols-5 @endif hidden lg:grid lg:gap-4">
 
                         @foreach($product->images->skip(1) as $picture)
                             <div class="relative aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
@@ -42,25 +42,7 @@
                 @endif
             </div>
 
-            <form class="max-w-2xl mx-auto pt-10 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:px-8"
-                  action="{{ url('admin/products/'.$product->slug.'/images') }}" method="POST"
-                  enctype="multipart/form-data">
-                @csrf
-                <div class="pb-4">
-                    <x-form.label name="images"/>
-                    <input type="file" id="images" name="images[]" multiple>
-
-                    @error('images')
-                    <p class="text-red-500 text-xs">{{ $message }}</p>
-                    @enderror
-                </div>
-                <div>
-                    <button type="submit"
-                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        Upload
-                    </button>
-                </div>
-            </form>
+            <x-form.upload-button :action="url('admin/products/'.$product->slug.'/images')" />
 
             <!-- Product info -->
             <div
@@ -122,4 +104,20 @@
             </div>
         </div>
     </div>
+
+    @push('styles')
+        <style>
+            .upload-input > svg > path {
+                -webkit-transition: fill 0.5s;
+                -moz-transition: fill 0.5s;
+                -ms-transition: fill 0.5s;
+                -o-transition: fill 0.5s;
+                transition: fill 0.5s;
+            }
+
+            .upload-input:hover > svg > path {
+                fill: #FFFFFF;
+            }
+        </style>
+    @endpush
 </x-admin-layout>
