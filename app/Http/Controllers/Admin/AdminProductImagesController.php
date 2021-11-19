@@ -18,6 +18,10 @@ class AdminProductImagesController extends AdminController
             'image.*' => 'required|image|mimetypes:png,jpg'
         ]);
 
+        if ($product->images()->count() === 11) {
+            return back()->withErrors(['images' => 'Максимальна кількість зображень 11']);
+        }
+
         if (!request()->file('images') == null) {
             foreach (request()->file('images') as $image) {
                 $path = $this->uploadAndResizeImage($image, 'products');
