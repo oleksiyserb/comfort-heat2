@@ -31,8 +31,12 @@
                                     </div>
 
                                     <x-form.input name="excerpt" />
-                                    <x-form.textarea name="body" />
-                                    <x-form.textarea name="technical" />
+                                    <x-form.textarea name="body">
+                                        {!! old('body') !!}
+                                    </x-form.textarea>
+                                    <x-form.textarea name="technical">
+                                        {!! old('technical') !!}
+                                    </x-form.textarea>
                                     <x-form.input name="manufacturer" class="sm:col-span-3 lg:col-span-2" />
                                     <x-form.input name="model" class="sm:col-span-3 lg:col-span-2" />
 

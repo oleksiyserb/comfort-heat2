@@ -86,6 +86,7 @@ class AdminProductController extends AdminController
      * Update the specified resource in storage.
      *
      * @param ProductUpdateRequest $request
+     * @param $id
      * @return Application|RedirectResponse|Redirector
      */
     public function update(ProductUpdateRequest $request, $id)
@@ -108,6 +109,6 @@ class AdminProductController extends AdminController
         $product = Product::find($id);
 
         $product->delete();
-        return back();
+        return redirect('/admin/products');
     }
 }

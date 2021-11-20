@@ -59,11 +59,25 @@
                     <p class="text-3xl text-gray-900">{{ $product->price }}₴</p>
 
                     <div class="mt-4">
-                        <h3 class="text-sm text-gray-900 font-medium">Виробник: {{ $product->manufacturer }}</h3>
+                        <h3 class="text-sm text-gray-900 font-medium">
+                            <b class="text-base">Виробник:</b> {{ $product->manufacturer }}
+                        </h3>
 
-                        <h3 class="pt-4 text-sm text-gray-900 font-medium">Модель: {{ $product->model }}</h3>
+                        <h3 class="pt-4 text-sm text-gray-900 font-medium">
+                            <b class="text-base">Модель:</b> {{ $product->model }}
+                        </h3>
 
-                        <h3 class="pt-4 text-sm text-gray-900 font-medium">Статус: {{ $product->getStatus() }}</h3>
+                        <h3 class="pt-4 text-sm text-gray-900 font-medium">
+                            <b class="text-base">Статус:</b> {{ $product->getStatus() }}
+                        </h3>
+
+                        <h3 class="pt-4 text-sm text-gray-900 font-medium">
+                            <b class="text-base">Створено:</b> {{ $product->created_at->diffForHumans() }}
+                        </h3>
+
+                        <h3 class="pt-4 text-sm text-gray-900 font-medium">
+                            <b class="text-base">Редаговано:</b> {{ $product->updated_at->diffForHumans() }}
+                        </h3>
                     </div>
 
                     <div class="mt-4 flex">
@@ -71,7 +85,7 @@
                            href="{{ url('admin/products/'. $product->slug . '/edit') }}">
                             Редагувати
                         </a>
-                        <form method="POST" action="{{ route('admin.products.destroy', $product->slug) }}">
+                        <form method="POST" action="{{ route('admin.products.destroy', $product->id) }}">
                             @method('DELETE')
                             @csrf
                             <button class="font-bold text-white py-2 px-4 bg-red-500 rounded-xl hover:bg-red-600">
