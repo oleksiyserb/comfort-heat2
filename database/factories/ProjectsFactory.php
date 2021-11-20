@@ -28,6 +28,7 @@ class ProjectsFactory extends Factory
         return [
             'author_id' => rand(1, 10),
             'name' => $name,
+            'excerpt' => $this->faker->text(rand(40, 100)),
             'body' => $this->faker->realText(rand(1000, 4000)),
             'slug' => $this->faker->unique()->slug(),
             'image' => 'images/illustration-' . $image . '.png',

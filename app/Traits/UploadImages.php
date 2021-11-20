@@ -25,8 +25,8 @@ trait UploadImages
      */
     public function unlinkImage($image): bool
     {
-        if ($this->getStoragePath() . $image->image) {
-            unlink($this->getStoragePath() . '/' . $image->image);
+        if ($this->getStoragePath() . ($image->image ?? $image)) {
+            unlink($this->getStoragePath() . '/' . ($image->image ?? $image));
         }
 
         return true;

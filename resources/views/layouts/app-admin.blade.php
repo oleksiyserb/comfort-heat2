@@ -46,7 +46,7 @@
 
                                 <x-admin-links
                                     :href="url('admin/projects')"
-                                    :class="request()->is('projects') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'"
+                                    :class="request()->is('admin/projects*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'"
                                 >
                                     Projects
                                 </x-admin-links>

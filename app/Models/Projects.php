@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $author_id
  * @property string $name
+ * @property string $excerpt
  * @property string $body
  * @property string $slug
  * @property string $image
@@ -37,4 +38,23 @@ use Illuminate\Database\Eloquent\Model;
 class Projects extends Model
 {
     use HasFactory;
+
+    const IS_PUBLISHED = 1;
+    const NO_IMAGE = 'images/no-image.jpg';
+
+    protected $fillable = ['name', 'slug', 'body', 'excerpt', 'image', 'is_published'];
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
+
+    public function isPublished(): string
+    {
+        if ($this->is_published == self::IS_PUBLISHED) {
+            return 'Опубліковано';
+        } else {
+            return 'Чернетка';
+        }
+    }
 }

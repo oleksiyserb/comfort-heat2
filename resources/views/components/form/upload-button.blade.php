@@ -18,7 +18,7 @@
         </label>
 
         @error('images')
-        <p class="text-red-500 text-xs">{{ $message }}</p>
+            <p class="text-red-500 text-xs">{{ $message }}</p>
         @enderror
     </div>
     <div>

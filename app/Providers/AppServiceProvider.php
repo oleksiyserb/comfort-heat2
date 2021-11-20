@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\Product;
+use App\Models\Projects;
 use App\Observers\ProductObserver;
+use App\Observers\ProjectObserver;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -28,5 +30,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::defaultView('vendor.pagination.default');
         Product::observe(ProductObserver::class);
+        Projects::observe(ProjectObserver::class);
     }
 }

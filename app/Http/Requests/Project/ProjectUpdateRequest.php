@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Product;
+namespace App\Http\Requests\Project;
 
-use App\Models\Product;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class ProductUpdateRequest extends FormRequest
+class ProjectUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,13 +25,12 @@ class ProductUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => [Rule::unique('products')->ignore($this->name, 'name'), 'required', 'max:255'],
-            'price' => 'required|integer',
-            'slug' => [Rule::unique('products')->ignore($this->slug, 'slug')],
+            'name' => [Rule::unique('projects')->ignore($this->name, 'name'), 'required', 'max:255'],
+            'slug' => [Rule::unique('projects')->ignore($this->slug, 'slug'), 'max:255'],
+            'image' => 'required|image|mimes:png,jpg',
             'excerpt' => 'required|min:20|max:255',
-            'category_id' => ['required', Rule::exists('categories', 'id')],
             'body' => 'required',
-            'status' => 'integer'
+            'is_published' => 'integer'
         ];
     }
 }

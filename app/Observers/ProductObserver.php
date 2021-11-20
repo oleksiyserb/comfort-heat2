@@ -26,6 +26,6 @@ class ProductObserver
 
     protected function setUser(Product $product)
     {
-        $product->author_id = auth()->user()->id;
+        $product->author_id = auth()->user()->id ?? rand(1, 10);
     }
 }

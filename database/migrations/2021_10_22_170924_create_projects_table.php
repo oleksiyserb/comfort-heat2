@@ -17,10 +17,11 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->foreignId('author_id')->constrained('users')->cascadeOnDelete();
             $table->string('name');
+            $table->string('excerpt');
             $table->text('body');
             $table->string('slug')->unique();
             $table->string('image');
-            $table->integer('is_published');
+            $table->integer('is_published')->default(0);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
