@@ -106,7 +106,12 @@ class AdminProductController extends AdminController
      */
     public function destroy($id)
     {
-        $product = Product::find($id);
+        $product = Product::with('images')->find($id);
+
+        foreach ($product->images as $image) {
+            $this->unlinkImage($image);
+            $image->delete();
+        }
 
         $product->delete();
         return redirect('/admin/products');

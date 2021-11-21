@@ -50,6 +50,13 @@
                                 >
                                     Projects
                                 </x-admin-links>
+
+                                <x-admin-links
+                                    :href="url('admin/articles')"
+                                    :class="request()->is('admin/articles*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'"
+                                >
+                                    Articles
+                                </x-admin-links>
                             </div>
                         </div>
                     </div>
@@ -124,6 +131,13 @@
                         :class="request()->is('admin/projects') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'"
                     >
                         Projects
+                    </x-admin-links>
+
+                    <x-admin-links
+                        :href="url('admin/articles')"
+                        :class="request()->is('admin/articles') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'"
+                    >
+                        Articles
                     </x-admin-links>
                 </div>
                 <div class="pt-4 pb-3 border-t border-gray-700">
