@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Article;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Str;
 
@@ -27,7 +28,7 @@ class ArticleFactory extends Factory
         $isPublished = rand(1,5) > 1;
 
         return [
-            'author_id' => rand(1, 10),
+            'author_id' => User::factory(),
             'name' => $name,
             'excerpt' => $this->faker->text(rand(40, 100)),
             'body' => $this->faker->paragraph(rand(1, 4)),

@@ -1,12 +1,12 @@
 <x-admin-layout>
     <x-admin-header>
-        Edit Project: {{ $project->name }}
+        Edit article: {{ $article->name }}
     </x-admin-header>
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div class="mt-10 sm:mt-0">
             <div class="md:flex md:justify-center">
                 <div class="mt-5 md:mt-0">
-                    <form action="{{ route('admin.projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.articles.update', $article->id) }}" method="POST" enctype="multipart/form-data">
                         @method('PATCH')
                         @csrf
                         <div class="shadow overflow-hidden sm:rounded-md">
@@ -19,8 +19,8 @@
                                     </ul>
                                 @endif
                                 <div class="grid grid-cols-6 gap-6">
-                                    <x-form.input name="name" :value="old('name', $project->name)" class="sm:col-span-3" />
-                                    <x-form.input name="slug" :value="old('slug', $project->slug)" class="sm:col-span-3" />
+                                    <x-form.input name="name" :value="old('name', $article->name)" class="sm:col-span-3" />
+                                    <x-form.input name="slug" :value="old('slug', $article->slug)" class="sm:col-span-3" />
 
                                     <div class="pb-4 col-span-6 flex justify-start items-center">
                                         <div class="pr-2">
@@ -35,18 +35,18 @@
                                             </label>
                                         </div>
                                         <div class="w-28">
-                                            <img class="block" src="{{ asset('storage/' . $project->image) }}" alt="project image">
+                                            <img class="block" src="{{ asset('storage/' . $article->image) }}" alt="article image">
                                         </div>
                                     </div>
 
-                                    <x-form.input name="excerpt" :value="old('excerpt', $project->excerpt)" />
+                                    <x-form.input name="excerpt" :value="old('excerpt', $article->excerpt)" />
                                     <x-form.textarea name="body">
-                                        {!! old('body', $project->body) !!}
+                                        {!! old('body', $article->body) !!}
                                     </x-form.textarea>
 
                                     <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                                         <label for="is_published" class="block text-sm font-medium text-gray-700">Is published?</label>
-                                        <input name="is_published" id="is_published" type="checkbox" value="1" @if(old('is_published', $project->is_published) == 1) checked @endif>
+                                        <input name="is_published" id="is_published" type="checkbox" value="1" @if(old('is_published', $article->is_published) == 1) checked @endif>
                                     </div>
                                 </div>
                             </div>

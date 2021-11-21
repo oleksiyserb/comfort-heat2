@@ -21,7 +21,7 @@ class CreateArticlesTable extends Migration
             $table->text('body');
             $table->string('slug')->unique();
             $table->string('image');
-            $table->integer('is_published');
+            $table->integer('is_published')->default(0);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Project\ProjectStoreRequest;
+use App\Http\Requests\Articles\ProjectsStoreRequest;
+use App\Http\Requests\Project\ProjectsUpdateRequest;
 use App\Models\Projects;
 use App\Traits\UploadImages;
 use Illuminate\Contracts\Foundation\Application;
@@ -14,10 +14,8 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Routing\Redirector;
 
-class AdminProjectController extends Controller
+class AdminProjectController extends AdminController
 {
-
-    use UploadImages;
     /**
      * Display a listing of the resource.
      *
@@ -45,10 +43,10 @@ class AdminProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param ProjectStoreRequest $request
+     * @param ProjectsStoreRequest $request
      * @return RedirectResponse
      */
-    public function store(ProjectStoreRequest $request)
+    public function store(ProjectsStoreRequest $request)
     {
         $project = Projects::create(array_merge($request->input(), [
             'image' => $this->uploadAndResizeImage($request->file('image'), 'projects')
@@ -60,7 +58,7 @@ class AdminProjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Projects $projects
+     * @param $slug
      * @return Application|Factory|View
      */
     public function show($slug)
@@ -90,11 +88,11 @@ class AdminProjectController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param ProjectsUpdateRequest $request
      * @param $id
      * @return Application|Redirector|RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(ProjectsUpdateRequest $request, $id)
     {
         $project = Projects::find($id);
 

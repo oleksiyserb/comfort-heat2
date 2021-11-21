@@ -20,10 +20,22 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(CategoriesTableSeeder::class);
-        User::factory(10)->create();
+        $user = User::factory()->create([
+            'name' => 'Serb Oleksiy',
+            'email' => 'test@test.com',
+            'password' => '123123123'
+        ]);
         Article::factory(20)->create();
-        Product::factory(100)->create();
-        Images::factory(100)->create();
-        Projects::factory(20)->create();
+        $products = Product::factory(100)->create([
+            'author_id' => $user->id
+        ]);
+        foreach ($products as $product) {
+            Images::factory()->create([
+                'product_id' => $product->id
+            ]);
+        }
+        Projects::factory(20)->create([
+            'author_id' => $user->id
+        ]);
     }
 }

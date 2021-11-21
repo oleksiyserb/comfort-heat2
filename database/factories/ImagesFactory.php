@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Images;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ImagesFactory extends Factory
@@ -24,7 +25,7 @@ class ImagesFactory extends Factory
         $image = $this->faker->randomElement([rand(1, 5)]);
 
         return [
-            'product_id' => rand(1, 100),
+            'product_id' => Product::factory(),
             'image' => 'images/illustration-' . $image . '.png',
             'created_at' => now(),
             'updated_at' => now()

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Projects;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProjectsFactory extends Factory
@@ -26,7 +27,7 @@ class ProjectsFactory extends Factory
         $isPublished = rand(1,5) > 1;
 
         return [
-            'author_id' => rand(1, 10),
+            'author_id' => User::factory(),
             'name' => $name,
             'excerpt' => $this->faker->text(rand(40, 100)),
             'body' => $this->faker->realText(rand(1000, 4000)),

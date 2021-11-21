@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Requests\Articles\ArticlesStoreRequest;
+use App\Http\Requests\Articles\ArticlesUpdateRequest;
 use App\Models\Article;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Routing\Redirector;
 
-class AdminArticlesController extends Controller
+class AdminArticlesController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -39,56 +42,80 @@ class AdminArticlesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param ArticlesStoreRequest $request
+     * @return Application|RedirectResponse|Redirector
      */
-    public function store(Request $request)
+    public function store(ArticlesStoreRequest $request)
     {
-        dd(__METHOD__, $request);
+        $article = Article::create(array_merge($request->input(), [
+            'image' => $this->uploadAndResizeImage($request->file('image'), 'articles')
+        ]));
+
+        return redirect('/admin/articles/' . $article->slug);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
+     * @param $slug
+     * @return Application|Factory|View
      */
     public function show($slug)
     {
-        dd(__METHOD__, $slug);
+        $article = Article::where('slug', $slug)->firstOrFail();
+
+        return view('admin.articles.show', compact('article'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
+     * @param $slug
+     * @return Application|Factory|View
      */
     public function edit($slug)
     {
-        dd(__METHOD__, $slug);
+        $article = Article::where('slug', $slug)->firstOrFail();
+
+        return view('admin.projects.edit', compact('article'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
+     * @param ArticlesUpdateRequest $request
+     * @param $id
+     * @return Application|Redirector|RedirectResponse
      */
-    public function update(Request $request, Article $article)
+    public function update(ArticlesUpdateRequest $request, $id)
     {
-        dd(__METHOD__, $article, $request);
+        $article = Article::find($id);
+
+        $attributes = $request->all();
+        $attributes['is_published'] ?? $attributes['is_published'] = 0;
+
+        if($attributes['image'] ?? false) {
+            $this->unlinkImage($article->image);
+            $attributes['image'] = $this->uploadAndResizeImage($attributes['image'], 'articles');
+        }
+
+        $article->update($attributes);
+        return redirect('/admin/articles');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Application|Redirector|RedirectResponse
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        dd(__METHOD__, $article);
+        $article = Article::find($id);
+
+        $this->unlinkImage($article->image);
+        $article->delete();
+
+        return redirect('/admin/articles');
     }
 }

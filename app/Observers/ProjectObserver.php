@@ -12,6 +12,11 @@ class ProjectObserver
         $this->setSlug($projects);
     }
 
+    public function updating(Projects $projects)
+    {
+        $this->setSlug($projects);
+    }
+
     protected function setSlug($projects)
     {
         if(empty($projects->slug)) {

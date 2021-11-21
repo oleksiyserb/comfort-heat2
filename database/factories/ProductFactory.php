@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProductFactory extends Factory
@@ -24,8 +25,8 @@ class ProductFactory extends Factory
         $title = $this->faker->sentence(rand(5, 10));
 
         return [
+            'author_id' => User::factory(),
             'category_id' => rand(1, 20),
-            'author_id' => rand(1, 10),
             'name' => $title,
             'price' => $this->faker->randomNumber(),
             'slug' => $this->faker->unique()->slug(),
