@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminArticlesController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminProductImagesController;
 use App\Http\Controllers\Admin\AdminProjectController;
@@ -52,6 +53,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::delete('products/{product}/images/{images}', [AdminProductImagesController::class, 'destroy']);
     // Admin Projects
     Route::resource('projects', AdminProjectController::class)->names('admin.projects');
+    // Admin Articles
+    Route::resource('articles', AdminArticlesController::class)->names('admin.articles');
 });
 
 Route::get('/dashboard', function () {
