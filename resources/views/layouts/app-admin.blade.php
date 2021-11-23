@@ -57,6 +57,13 @@
                                 >
                                     Articles
                                 </x-admin-links>
+
+                                <x-admin-links
+                                    :href="url('admin/users')"
+                                    :class="request()->is('admin/users*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'"
+                                >
+                                    Users
+                                </x-admin-links>
                             </div>
                         </div>
                     </div>
@@ -71,11 +78,11 @@
                                         id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                         <span class="sr-only">Open user menu</span>
                                         <img class="h-8 w-8 rounded-full"
-                                             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                             src="https://i.pravatar.cc/60?u={{ auth()->user()->id }}"
                                              alt="">
                                     </button>
                                 </div>
-                                <form method="POST" action="/"
+                                <form method="POST" action="{{ route('logout') }}"
                                       x-show="showPanel"
                                       class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                                       aria-orientation="vertical" aria-labelledby="user-menu-button"
@@ -139,12 +146,19 @@
                     >
                         Articles
                     </x-admin-links>
+
+                    <x-admin-links
+                        :href="url('admin/users')"
+                        :class="request()->is('admin/users') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'"
+                    >
+                        Users
+                    </x-admin-links>
                 </div>
                 <div class="pt-4 pb-3 border-t border-gray-700">
                     <div class="flex items-center px-5">
                         <div class="flex-shrink-0">
                             <img class="h-10 w-10 rounded-full"
-                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                 src="https://i.pravatar.cc/60?u={{ auth()->user()->id }}"
                                  alt="">
                         </div>
                         <div class="ml-3">

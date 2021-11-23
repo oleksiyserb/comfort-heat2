@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminArticlesController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminProductImagesController;
 use App\Http\Controllers\Admin\AdminProjectController;
+use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductController;
@@ -55,6 +56,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('projects', AdminProjectController::class)->names('admin.projects');
     // Admin Articles
     Route::resource('articles', AdminArticlesController::class)->names('admin.articles');
+    // Admin users
+    Route::resource('users', AdminUsersController::class)->names('admin.users')->except('show', 'edit');
 });
 
 Route::get('/dashboard', function () {
