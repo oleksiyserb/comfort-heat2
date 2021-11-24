@@ -54,6 +54,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                     {{ $user->updated_at->diffForHumans() }}
                                 </td>
+                                @if($user->name != auth()->user()->name)
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <form class="inline-block" method="POST" action="{{ route('admin.users.destroy', $user->id) }}">
                                         @method('DELETE')
@@ -63,6 +64,7 @@
                                         </button>
                                     </form>
                                 </td>
+                                @endif
                             </tr>
                             @endforeach
 

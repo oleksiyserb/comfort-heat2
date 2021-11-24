@@ -85,7 +85,7 @@
                     <div class="result__wrapper">
                         @foreach($products as $product)
                             <a href="{{ url('products/' . $product->slug) }}" class="result__product-card">
-                            <img src="{{ asset('storage/'. $product->getImage()) }}" alt="product-image">
+                            <img src="{{ asset('storage/'. $product->getImage()->image) }}" alt="product-image">
                             <div class="result__description">
                                 <h4>{{ $product->name }}</h4>
                                 <span>{{ $product->price }}&nbsp;₴</span>

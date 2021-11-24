@@ -47,7 +47,7 @@ Route::get('/search', [SearchController::class, 'index']);
 Route::get('/products/{product:slug}', [ProductController::class, 'show']);
 
 // ----------------------------------------Admin---------------------------------------------------------------
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     // Admin Products
     Route::resource('products', AdminProductController::class)->names('admin.products');
     Route::post('products/{product:slug}/images', [AdminProductImagesController::class, 'store']);
@@ -62,6 +62,6 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['admin'])->name('dashboard');
 
 require __DIR__.'/auth.php';

@@ -12,7 +12,7 @@
 				<div class="product__view">
 					<div class="product__wrapper">
 						<a href="#" class="product__image" id="static-image">
-							<img src="{{ asset('storage/' . $product->getImage()) }}" alt="product-image">
+							<img src="{{ asset('storage/' . $product->getImage()->image) }}" alt="product-image">
 						</a>
 					</div>
 					<div class="product__mini-wrapper">
@@ -60,7 +60,7 @@
 
                 @foreach($products as $product)
 				    <a href="{{ $product->slug }}" class="result__product-card">
-					<img src="{{ asset('storage/' . $product->getImage()) }}" alt="product-image">
+					<img src="{{ asset('storage/' . $product->getImage()->image) }}" alt="product-image">
 					<div class="result__description">
 						<h4>{{ $product->name }}</h4>
 						<p>{{ $product->excerpt }}</p>

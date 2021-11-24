@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Projects;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,7 +24,7 @@ class DatabaseSeeder extends Seeder
         $user = User::factory()->create([
             'name' => 'Serb Oleksiy',
             'email' => 'test@test.com',
-            'password' => '123123123'
+            'password' => Hash::make('123123123')
         ]);
         Article::factory(20)->create();
         $products = Product::factory(100)->create([
