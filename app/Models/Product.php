@@ -47,7 +47,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    const NO_IMAGE = 'images/no-image.jpg';
+    const NO_IMAGE = 'no-image.jpg';
     const AVAILABLE = 1;
 
     protected $fillable = [

@@ -40,7 +40,7 @@ class Projects extends Model
     use HasFactory;
 
     const IS_PUBLISHED = 1;
-    const NO_IMAGE = 'images/no-image.jpg';
+    const NO_IMAGE = 'no-image.jpg';
 
     protected $fillable = ['name', 'slug', 'body', 'excerpt', 'image', 'is_published'];
 

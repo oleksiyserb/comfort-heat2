@@ -26,17 +26,17 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@test.com',
             'password' => Hash::make('123123123')
         ]);
-        Article::factory(20)->create();
-        $products = Product::factory(100)->create([
-            'author_id' => $user->id
-        ]);
-        foreach ($products as $product) {
-            Images::factory()->create([
-                'product_id' => $product->id
-            ]);
-        }
-        Projects::factory(20)->create([
-            'author_id' => $user->id
-        ]);
+//        Article::factory(20)->create();
+//        $products = Product::factory(100)->create([
+//            'author_id' => $user->id
+//        ]);
+//        foreach ($products as $product) {
+//            Images::factory()->create([
+//                'product_id' => $product->id
+//            ]);
+//        }
+//        Projects::factory(20)->create([
+//            'author_id' => $user->id
+//        ]);
     }
 }
