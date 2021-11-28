@@ -9,7 +9,7 @@
             <div class="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
                 <div
                     class="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4 relative">
-                    <img src="{{ asset('storage/' . ($product->getImage()->image ?? \App\Models\Product::NO_IMAGE)) }}"
+                    <img src="{{ asset($product->getImage() ? "storage/{$product->getImage()->image}" : \App\Models\Product::NO_IMAGE) }}"
                          alt="Product 1" class="w-full h-full object-center object-cover">
 
                     @if ($product->getImage())

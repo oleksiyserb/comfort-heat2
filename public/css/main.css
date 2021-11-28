@@ -900,6 +900,7 @@ li.active {
 }
 .search-params__input {
   position: relative;
+    margin-bottom: 1em;
 }
 .search-params__input > input[type=text] {
   border-radius: 20px;
@@ -911,7 +912,7 @@ li.active {
   cursor: pointer;
   padding: 0.5625em 1.125em;
   display: block;
-  width: 230px;
+  width: 100%;
   border-radius: 20px;
   color: #007AC9;
   font-weight: 600;

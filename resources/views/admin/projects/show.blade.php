@@ -9,7 +9,7 @@
             <div class="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
                 <div
                     class="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4 relative">
-                    <img src="{{ asset('storage/' . ($project->image ?? \App\Models\Projects::NO_IMAGE)) }}"
+                    <img src="{{ asset($project->image ? "storage/{$project->image}" : \App\Models\Projects::NO_IMAGE) }}"
                          alt="project 1" class="w-full h-full object-center object-cover">
                 </div>
             </div>

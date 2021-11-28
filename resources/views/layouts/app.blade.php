@@ -99,10 +99,12 @@
             </div>
             <div class="burger-menu__body">
                 <div class="container">
-                    <div class="search-input">
-                        <label for="search"><a href="#"><img src="/image/search-input.svg" alt="search"></a></label>
-                        <input id="search" type="text">
-                    </div>
+                    <form action="/search" class="search-input">
+                        <button type="submit">
+                            <img src="/image/search-input.svg" alt="search">
+                        </button>
+                        <input name="name" type="text">
+                    </form>
                     <ul class="burger-menu__links">
                         <li><a href="{{ url('articles') }}">Новини</a></li>
                         <li><a href="{{ url('projects') }}">Проєкти</a></li>

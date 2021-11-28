@@ -668,6 +668,10 @@
   }
   .search-params__input {
     margin-right: 2.5em;
+    margin-bottom: 0;
+  }
+  .search-params__input > select {
+      width: 230px;
   }
 }
 @media (min-width: 768px) {

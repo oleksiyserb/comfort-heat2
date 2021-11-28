@@ -38,7 +38,7 @@
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
                                                 <img class="h-10 w-10 object-cover"
-                                                     src="{{ asset('storage/' . ($article->image ?? \App\Models\Article::NO_IMAGE)) }}"
+                                                     src="{{ asset($article->image ? "storage/{$article->image}" : \App\Models\Article::NO_IMAGE) }}"
                                                      alt="project-image">
                                             </div>
                                         </div>
