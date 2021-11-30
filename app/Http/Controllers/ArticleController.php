@@ -11,7 +11,7 @@ class ArticleController extends Controller
     public function index()
     {
         return view('article.index', [
-            'articles' => Article::paginate(10)
+            'articles' => Article::where('is_published', 1)->paginate(10)
         ]);
     }
 
@@ -19,7 +19,7 @@ class ArticleController extends Controller
     {
         return view('article.show', [
             'article' => $article,
-            'recommend' => Article::latest()->take(2)->get()
+            'recommend' => Article::where('is_published', 1)->latest()->take(2)->get()
         ]);
     }
 }

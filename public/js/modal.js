@@ -60,42 +60,22 @@ function laptopUnvisible() {
 	body.classList.remove("overflow--hidden");
 }
 
-//
-// ---------------Search-------------------
-//
-
-searchButton.onclick = (e) => {
-	e.preventDefault();
-	search();
-}
-
-searchIcon.onclick = (e) => {
-	unvisivleSearch();
-}
-
-function search() {
-	searchMenu.classList.add("open")
-	body.classList.add("overflow--hidden");
-}
-
-function unvisivleSearch() {
-	searchMenu.classList.remove("open")
-	body.classList.remove("overflow--hidden");
-}
-
 // -------------------------------------------Product-----------------------------------------------------
 
+let staticImage = document.getElementById('static-image');
 let closeProduct = document.getElementById('close-product');
 let modalProduct = document.getElementById('modal-product');
 
-staticImage.onclick = (e) => {
-	e.preventDefault();
+if (staticImage && closeProduct) {
+    staticImage.onclick = (e) => {
+        e.preventDefault();
 
-	modalProduct.classList.add('open');
-}
+        modalProduct.classList.add('open');
+    }
 
-closeProduct.onclick = (e) => {
-	e.preventDefault();
+    closeProduct.onclick = (e) => {
+        e.preventDefault();
 
-	modalProduct.classList.remove('open');
+        modalProduct.classList.remove('open');
+    }
 }

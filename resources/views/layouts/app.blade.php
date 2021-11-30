@@ -16,6 +16,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/media.css') }}">
+
+    <!-- JavaScript -->
+    <script src="{{ asset('js/app.js') }}"></script>
 </head>
 
 <body id="body">
@@ -106,6 +109,7 @@
                         <input name="name" type="text">
                     </form>
                     <ul class="burger-menu__links">
+                        <li><a href="{{ url('/') }}">Головна</a></li>
                         <li><a href="{{ url('articles') }}">Новини</a></li>
                         <li><a href="{{ url('projects') }}">Проєкти</a></li>
                         <li><a href="{{ url('technical') }}">Технічна інформація</a></li>
@@ -153,7 +157,7 @@
         </div>
         <div class="header__body">
             <div class="container">
-                <div class="header__info">
+                <div x-data="{ open: false }" class="header__info">
                     <div class="header__logo">
                         <a href="/"><img src="/image/logo.svg" alt="logo"></a>
                         <ul class="logo__list">
@@ -174,20 +178,25 @@
                         <li><a href="mailto:office@comfortheat.kiev.ua">office@comfortheat.kiev.ua</a></li>
                         <li>м. Київ, вул. В. Хвойки, 10, оф. 3</li>
                     </ul>
-                    <a href="#" id="search-button" class="button-menu header__search">
+                    <a href="#" @click="open = true" class="button-menu header__search">
                         <img src="/image/search-modal.svg" alt="search">
                         <p>Пошук</p>
                     </a>
 
                     <!-- Modal search -->
 
-                    <div id="search-menu" class="search">
+                    <div x-show="open" class="search">
                         <form action="/search" class="search-input">
                             <input name="name" id="search" type="text" required>
                             <button type="submit" id="search-icon">
                                 <img src="/image/search-input.svg" alt="search">
                             </button>
                         </form>
+                        <a href="#" @click="open = false">
+                            <svg width="25" height="25" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 47.3404C0 48.8093 1.19073 50 2.65957 50C3.47325 50 4.21084 49.6236 4.69869 49.048C12.5923 41.1544 25 28.7234 25 28.7234L45.3791 49.1367C45.8653 49.6673 46.564 50 47.3404 50C48.8093 50 50 48.8093 50 47.3404C50 46.6673 49.7296 46.0297 49.3172 45.5612L28.7234 25L49.2021 4.55889C49.6855 4.07732 50 3.39582 50 2.65957C50 1.19073 48.8093 0 47.3404 0C46.5627 0 45.8629 0.333823 45.3766 0.865999L25 21.2766L4.72337 0.98192C4.23558 0.38994 3.48653 0 2.65957 0C1.19073 0 0 1.19073 0 2.65957C0 3.47058 0.372403 4.20477 0.94479 4.69259L21.2766 25L11.1702 35.1064L0.907702 45.3393C0.356984 45.8266 0 46.5473 0 47.3404Z" fill="white"/>
+                            </svg>
+                        </a>
                     </div>
 
                     <!-- Modal search end -->
@@ -274,6 +283,7 @@
                     </div>
                 </div>
                 <div class="footer__menu">
+                    <a href="{{ url('/') }}">Головна</a>
                     <a href="{{ url('articles') }}">Новини</a>
                     <a href="{{ url('projects') }}">Проєкти</a>
                     <a href="{{ url('technical') }}">Технічна інформація</a>

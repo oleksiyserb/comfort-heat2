@@ -52,22 +52,24 @@ let technical = document.getElementById('technical');
 let descriptionText = document.querySelector('.product__text');
 let technicalText = document.querySelector('.product__technical');
 
-technical.onclick = (e) => {
-	e.preventDefault();
+if (technical && description) {
+    technical.onclick = (e) => {
+        e.preventDefault();
 
-	technical.classList.add('active');
-	description.classList.remove('active');
-	descriptionText.style.display = "none";
-	technicalText.style.display = "block";
-}
+        technical.classList.add('active');
+        description.classList.remove('active');
+        descriptionText.style.display = "none";
+        technicalText.style.display = "block";
+    }
 
-description.onclick = (e) => {
-	e.preventDefault();
+    description.onclick = (e) => {
+        e.preventDefault();
 
-	description.classList.add('active');
-	technical.classList.remove('active');
-	descriptionText.style.display = "block";
-	technicalText.style.display = "none";
+        description.classList.add('active');
+        technical.classList.remove('active');
+        descriptionText.style.display = "block";
+        technicalText.style.display = "none";
+    }
 }
 
 // ----------------------------------------Slider Swiper----------------------------------------------------------------

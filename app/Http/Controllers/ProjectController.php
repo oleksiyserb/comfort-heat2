@@ -10,7 +10,7 @@ class ProjectController extends Controller
     public function index()
     {
         return view('projects.index', [
-            'projects' => Projects::paginate(10)
+            'projects' => Projects::where('is_published', 1)->paginate(10)
         ]);
     }
 
@@ -18,7 +18,7 @@ class ProjectController extends Controller
     {
         return view('projects.show', [
             'project' => $project,
-            'recommend' => Projects::latest()->take(2)->get()
+            'recommend' => Projects::where('is_published', 1)->latest()->take(2)->get()
         ]);
     }
 }
