@@ -185,18 +185,13 @@
 
                     <!-- Modal search -->
 
-                    <div x-show="open" class="search">
-                        <form action="/search" class="search-input">
+                    <div x-show="open" @click="open = false" class="search">
+                        <form action="/search" class="search-input" @click.stop>
                             <input name="name" id="search" type="text" required>
                             <button type="submit" id="search-icon">
                                 <img src="/image/search-input.svg" alt="search">
                             </button>
                         </form>
-                        <a href="#" @click="open = false">
-                            <svg width="25" height="25" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 47.3404C0 48.8093 1.19073 50 2.65957 50C3.47325 50 4.21084 49.6236 4.69869 49.048C12.5923 41.1544 25 28.7234 25 28.7234L45.3791 49.1367C45.8653 49.6673 46.564 50 47.3404 50C48.8093 50 50 48.8093 50 47.3404C50 46.6673 49.7296 46.0297 49.3172 45.5612L28.7234 25L49.2021 4.55889C49.6855 4.07732 50 3.39582 50 2.65957C50 1.19073 48.8093 0 47.3404 0C46.5627 0 45.8629 0.333823 45.3766 0.865999L25 21.2766L4.72337 0.98192C4.23558 0.38994 3.48653 0 2.65957 0C1.19073 0 0 1.19073 0 2.65957C0 3.47058 0.372403 4.20477 0.94479 4.69259L21.2766 25L11.1702 35.1064L0.907702 45.3393C0.356984 45.8266 0 46.5473 0 47.3404Z" fill="white"/>
-                            </svg>
-                        </a>
                     </div>
 
                     <!-- Modal search end -->
