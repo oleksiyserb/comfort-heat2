@@ -109,4 +109,25 @@ class Product extends Model
             return 'Немає на складі';
         }
     }
+
+    /**
+     * @param $value
+     * @param string $unit
+     * @return array|string|string[]
+     */
+    public function formatPrice($value, string $unit = 'грн.')
+    {
+        if ($value > 0) {
+            $value = number_format($value, 2, ',', ' ');
+            $value = str_replace(',00', '', $value);
+
+            if (!empty($unit)) {
+                $value .= ' ' . $unit;
+            }
+        } else {
+            $value = 'Немає в наявності';
+        }
+
+        return $value;
+    }
 }

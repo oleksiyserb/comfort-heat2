@@ -26,7 +26,7 @@
 				<div class="product__info">
 					<div class="product__top">
 						<h2 class="title product__title">{{ $product->name }}</h2>
-						<h2>{{ $product->price }}&nbsp;₴</h2>
+						<h2>{{ $product->formatPrice($product->price) }}</h2>
 					</div>
 					<div class="product__bottom">
 						<p>Модель: {{ $product->model }}</p>

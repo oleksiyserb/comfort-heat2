@@ -88,7 +88,7 @@
                             <img src="{{ asset('storage/'. $product->getImage()->image) }}" alt="product-image">
                             <div class="result__description">
                                 <h4>{{ $product->name }}</h4>
-                                <span>{{ $product->price }}&nbsp;₴</span>
+                                <span>{{ $product->formatPrice($product->price) }}</span>
                                 <p>
                                     {{ $product->excerpt }}
                                 </p>

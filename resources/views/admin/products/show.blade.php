@@ -56,7 +56,7 @@
                 <!-- Options -->
                 <div class="mt-4 lg:mt-0 lg:row-span-3">
                     <h2 class="sr-only">Інформація про продукт</h2>
-                    <p class="text-3xl text-gray-900">{{ $product->price }}₴</p>
+                    <p class="text-3xl text-gray-900">{{ $product->formatPrice($product->price) }}</p>
 
                     <div class="mt-4">
                         <h3 class="text-sm text-gray-900 font-medium">
