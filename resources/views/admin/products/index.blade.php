@@ -3,9 +3,13 @@
         Product List
     </x-admin-header>
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <a href="{{ url('admin/products/create') }}" class="my-5 inline-block bg-green-500 px-4 py-1.5 text-white rounded-xl">
-            Create
-        </a>
+        @if($categories->count() > 0)
+            <a href="{{ url('admin/products/create') }}" class="my-5 inline-block bg-green-500 px-4 py-1.5 text-white rounded-xl">
+                Create
+            </a>
+        @else
+            <p class="text-red-500 text-xl font-bold my-5">Створіть під категорію перед додаванням нового продукту.</p>
+        @endif
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">

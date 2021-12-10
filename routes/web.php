@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminArticlesController;
+use App\Http\Controllers\Admin\AdminCategoriesController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminProductImagesController;
 use App\Http\Controllers\Admin\AdminProjectController;
@@ -58,6 +59,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('articles', AdminArticlesController::class)->names('admin.articles');
     // Admin users
     Route::resource('users', AdminUsersController::class)->names('admin.users')->except('show', 'edit');
+    // Admin Categories
+    Route::resource('categories', AdminCategoriesController::class)->names('admin.categories')->except('show');
 });
 
 Route::get('/dashboard', function () {

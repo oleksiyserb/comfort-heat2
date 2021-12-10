@@ -27,7 +27,8 @@ class AdminProductController extends AdminController
         Paginator::useTailwind();
 
         return view('admin.products.index', [
-            'products' => Product::latest()->paginate(20)
+            'products' => Product::latest()->paginate(20),
+            'categories' => Categories::where('parent_id', '>', 0)->get()
         ]);
     }
 

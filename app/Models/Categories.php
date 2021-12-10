@@ -30,8 +30,15 @@ class Categories extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'slug', 'description', 'parent_id'];
+
     public function products(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Product::class, 'category_id');
+    }
+
+    public function getParent()
+    {
+        return $this->where('id', $this->parent_id)->first();
     }
 }

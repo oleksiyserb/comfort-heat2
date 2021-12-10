@@ -24,6 +24,11 @@
                 <hr>
                 <a href="{{ url('admin/users') }}" class="m-3 block font-bold hover:text-blue-400 focus:outline-none">Перейти</a>
             </div>
+            <div class="text-center border border-2 border-gray-200 rounded-xl shadow bg-white">
+                <h1 class="text-lg font-bold m-3">Керування категоріями</h1>
+                <hr>
+                <a href="{{ url('admin/categories') }}" class="m-3 block font-bold hover:text-blue-400 focus:outline-none">Перейти</a>
+            </div>
         </div>
     </main>
 </x-admin-layout>

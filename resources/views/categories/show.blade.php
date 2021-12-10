@@ -35,7 +35,7 @@
 			<!-- Subcategory -->
 			<section class="subcategory">
 				<h2 class="title">{{ $category->name }}</h2>
-				<p>{{ $category->description }}</p>
+				<p>{!! $category->description !!}</p>
 			</section>
 
 			<!-- Result-->

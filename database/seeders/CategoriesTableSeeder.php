@@ -34,7 +34,9 @@ class CategoriesTableSeeder extends Seeder
                 'name' => $cName,
                 'slug' => Str::slug($cName),
                 'description' => $lorem,
-                'parent_id' => 0
+                'parent_id' => 0,
+                'created_at' => now(),
+                'updated_at' => now()
             ];
         }
 
@@ -46,7 +48,9 @@ class CategoriesTableSeeder extends Seeder
                 'name' => $cName,
                 'slug' => Str::slug($cName),
                 'description' => $lorem,
-                'parent_id' => $parentId
+                'parent_id' => $parentId,
+                'created_at' => now(),
+                'updated_at' => now()
             ];
         }
 

@@ -64,6 +64,13 @@
                                 >
                                     Users
                                 </x-admin-links>
+
+                                <x-admin-links
+                                    :href="url('admin/categories')"
+                                    :class="request()->is('admin/categories*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'"
+                                >
+                                    Categories
+                                </x-admin-links>
                             </div>
                         </div>
                     </div>
@@ -152,6 +159,13 @@
                         :class="request()->is('admin/users') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'"
                     >
                         Users
+                    </x-admin-links>
+
+                    <x-admin-links
+                        :href="url('admin/categories')"
+                        :class="request()->is('admin/categories') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'"
+                    >
+                        Categories
                     </x-admin-links>
                 </div>
                 <div class="pt-4 pb-3 border-t border-gray-700">
